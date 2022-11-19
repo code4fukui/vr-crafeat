@@ -1,13 +1,22 @@
 <script type="module">
 import { cr, rgb, asset } from "https://js.sabae.cc/aframe.js";
-const scene = cr("a-scene", document.body);
+const scene = cr("a-scene");
+//scene.setAttribute("renderer", "precision: mediump; antialias: false; alpha: true; logarithmicDepthBuffer: true; colorManagement: true;");
+scene.setAttribute("renderer", "colorManagement: true;");
+document.body.appendChild(scene);
 /*
 const box = cr("a-box", scene);
 box.setAttribute("position", { x: 0, y: 1, z: -2 });
 box.setAttribute("color", rgb(255, 100, 100));
 */
-const aid = asset("./kani-burger.glb");
-const obj = cr("a-entity", scene);
-obj.setAttribute("gltf-model", aid);
-obj.setAttribute("position", { x: 0, y: 1.1, z: -.3 });
+{
+  const obj = cr("a-entity", scene);
+  obj.setAttribute("gltf-model", asset("./kani-burger.glb"));
+  obj.setAttribute("position", { x: 0.15, y: 1.2, z: -.5 });
+}
+{
+  const obj = cr("a-entity", scene);
+  obj.setAttribute("gltf-model", asset("./shishiniku.glb"));
+  obj.setAttribute("position", { x: -0.15, y: 1.2, z: -.5 });
+}
 </script>
